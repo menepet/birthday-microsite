@@ -1,0 +1,11 @@
+{
+  "name": "bday-proj",
+  "version": "1.0.0",
+  "description": "birthday thanks giving project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "menepet <menepet@gmail.com>",
+  "license": "ISC"
+}

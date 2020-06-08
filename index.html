@@ -80,15 +80,15 @@
   ]
   var treatedOnce = false;
 
-  $('#box').click(function() {
+  $('#box, #gift').click(function() {
     if (!treatedOnce) {
-      $(this).fadeOut('fast', function() {
+      $(this).fadeOut(200, function() {
         $(this).attr("src", "box-opened.jpg").fadeIn();
         $('#gift').attr("src", images[getRandomInt(images.length - 1)]).fadeIn();
       })
       treatedOnce = true;
     } else {
-      $('#gift').fadeOut('fast', function() {
+      $('#gift').fadeOut(200, function() {
         $(this).attr("src", images[getRandomInt(images.length - 1)])
         $(this).fadeIn();
       });
@@ -125,6 +125,7 @@ h2 { font-size: 25px; line-height: 40px; }
   top: 47%;
   width: 200px;
   margin: auto;
+  cursor: pointer;
   left: 0;
   right: 0;
   max-width: 200px;
@@ -132,8 +133,8 @@ h2 { font-size: 25px; line-height: 40px; }
 }
 
 @keyframes fade-up {
-  0% { transform: translateY(40%); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+  0% { transform: translateY(40%); }
+  100% { transform: translateY(0); }
 }
 
 /************************************************/
@@ -322,11 +323,12 @@ span {
   .balloon > div { width: 50px; height: 70px; }
   span { font-size: 2.2rem; }
   .balloon > div:before { left: 19px; }
-  .balloon > div:nth-child(2) { left: 65px; }
-  .balloon > div:nth-child(3) { left: 130px; }
-  .balloon > div:nth-child(4) { left: 195px; }
-  .balloon > div:nth-child(5) { left: 260px; }
-  .balloon > div:nth-child(6) { left: 325px; }
+  .balloon > div:nth-child(1) span { left: -3px; }
+  .balloon > div:nth-child(2) { left: 62px; }
+  .balloon > div:nth-child(3) { left: 124px; }
+  .balloon > div:nth-child(4) { left: 186px; }
+  .balloon > div:nth-child(5) { left: 248px; }
+  .balloon > div:nth-child(6) { left: 310px; }
 }
 </style>
 

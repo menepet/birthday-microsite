@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="460" height="300" src="step1.jpg">
+  <img width="460" height="300" src="assets/step1.jpg">
 </p>
 
 # Birthday Thank You microsite

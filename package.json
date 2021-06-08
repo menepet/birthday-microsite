@@ -1,6 +1,6 @@
 {
   "name": "bday-proj",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "birthday thanks giving project",
   "main": "index.js",
   "scripts": {

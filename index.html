@@ -4,43 +4,41 @@
 <head>
   <meta charset="utf-8" lang="el">
   <title>Thanks for your lovely wishes, Menelaos</title>
+
   <meta name="description" content="Thanks for your lovely wishes, Menelaos">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta property="og:title" content="Menepet Birthday Thank you page">
   <meta property="og:description" content="Thanks for your lovely wishes, Menelaos">
-  <meta property="og:image" content="https://startwithhow.com/wp-content/uploads/2019/11/thank-you-for-birthday-wishes.jpg">
+  <meta property="og:image" content="assets/ty.jpg">
 
   <meta property="title" content="Menepet Birthday Thank you page">
   <meta property="description" content="Thanks for your lovely wishes, Menelaos">
-  <meta property="image" content="https://startwithhow.com/wp-content/uploads/2019/11/thank-you-for-birthday-wishes.jpg">
+  <meta property="image" content="assets/ty.jpg">
 
   <meta name="keywords" content="menepet, birthday, bday">
   <meta name="author" content="menepet <menepet@gmail.com>">
 
   <link rel="apple-touch-icon" href="favicon.ico">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
   <meta name="theme-color" content="#fafafa">
-  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+
+  <link href="style.css" rel="stylesheet">
 </head>
 
 <body style="background-color: #ffffff;">
 
-  <a
-    style="position: absolute; right: 0;"
-    rel="noopener"
-    target="_blank"
-    
+  <a style="position: absolute; right: 0;" rel="noopener" target="_blank"
     href="https://github.com/menepet/birthday-microsite">
-    <img
-      width="149"
-      height="149"
-      src="https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png?resize=149%2C149"
-      class="attachment-full size-full"
-      alt="Fork me on GitHub"
-      data-recalc-dims="1"
-    ></a>
+    <img width="149" height="149" src="assets/fork_me.png" class="attachment-full size-full" alt="Fork me on GitHub"
+      data-recalc-dims="1">
+  </a>
 
   <div class="block md:hidden w-full pt-3 md:pt-0 md:w-1/2">
     <div class="balloon-container">
@@ -53,19 +51,20 @@
         <div><span>!</span></div>
       </div>
     </div>
-    <img src="step1.jpg" class="m-auto" alt="label">
+
+    <img src="assets/step1.jpg" class="m-auto" alt="label">
   </div>
 
   <div class="container flex flex-wrap m-auto w-full py-10 px-5 md:px-0">
     <div class="w-full md:w-1/2 relative">
-      <h1 class="w-full text-center">Thanks for your beautiful wishes</h1>
+      <h1 class="w-full text-center font-bold">Thanks for your beautiful wishes</h1>
       <br />
       <h2 class="w-full text-center pb-10">
-        I wish I could treat you normally, but due to the COVID,
-        I treat you remotely. Click on the box and get a different dessert each time
-        to celebrate with me my 28 years young age!
-        &nbsp;&nbsp;Menelaos</h2>
-      <img id="box" src="box-closed.jpg" class="w-full" style="display: block; cursor: pointer;" alt="box closed">
+        🎂 Click on the box and get one dessert every time!<br>
+        Celebrate my <i id="age"></i> years with me! 🎉
+
+      <img id="box" src="assets/box-closed.jpg" class="w-full" style="display: block; cursor: pointer;"
+        alt="box closed">
       <img id="gift" src="" alt="gift">
     </div>
     <div class="hidden md:block w-full pt-3 md:pt-0 md:w-1/2">
@@ -79,279 +78,16 @@
           <div><span>!</span></div>
         </div>
       </div>
-      <img src="step1.jpg" class="m-auto" alt="label">
+
+      <img src="assets/step1.jpg" class="m-auto" alt="label">
     </div>
   </div>
 
 </body>
 
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-<script>
-  var images = [
-    'sweet1.png',
-    'sweet2.png',
-    'sweet3.png',
-    'sweet4.png',
-    'sweet6.png',
-    'sweet7.png',
-    'sweet8.png',
-    'sweet9.png',
-    'sweet10.png',
-    'sweet11.png'
-  ]
-  var treatedOnce = false;
-
-  $('#box, #gift').click(function() {
-    if (!treatedOnce) {
-      $(this).fadeOut(200, function() {
-        $(this).attr("src", "box-opened.jpg").fadeIn();
-        $('#gift').attr("src", images[getRandomInt(images.length - 1)]).fadeIn();
-      })
-      treatedOnce = true;
-    } else {
-      $('#gift').fadeOut(200, function() {
-        $(this).attr("src", images[getRandomInt(images.length - 1)])
-        $(this).fadeIn();
-      });
-    }
-
-  })
-
-  /**
- * Returns a random integer between min (inclusive) and max (inclusive).
- * The value is no lower than min (or the next integer greater than min
- * if min isn't an integer) and no greater than max (or the next integer
- * lower than max if max isn't an integer).
- * Using Math.round() will give you a non-uniform distribution!
- */
-function getRandomInt(max) {
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max + 1));
-}
-</script>
-
-<style>
-html, body {
-  margin: 0;
-  height: 100%;
-  font-family: 'Roboto', sans-serif;
-}
-
-h1 { font-size: 35px; }
-h2 { font-size: 25px; line-height: 40px; }
-
-#gift {
-  display: none;
-  position: absolute;
-  top: 47%;
-  width: 200px;
-  margin: auto;
-  cursor: pointer;
-  left: 0;
-  right: 0;
-  max-width: 200px;
-  animation: fade-up .4s ease-out forwards;
-}
-
-@keyframes fade-up {
-  0% { transform: translateY(40%); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
-}
-
-/************************************************/
-
-.balloon-container {
-    height: 250px;
-    padding: 10px;
-}
-.balloon {
-    margin: 0 auto;
-    padding-top: 30px;
-    position: relative;
-}
-.balloon > div {
-    width: 104px;
-    height: 140px;
-    background: rgba(182, 15, 97, 0.9);
-    border-radius: 0;
-    border-radius: 80% 80% 80% 80%;
-    margin: 0 auto;
-    position: absolute;
-    padding: 10px;
-    box-shadow: inset 17px 7px 10px rgba(182, 15, 97, 0.9);
-    -webkit-transform-origin: bottom center;
-}
-.balloon > div:nth-child(1) {
-    background: rgba(182, 15, 97, 0.9);
-    left: 0;
-    box-shadow: inset 10px 10px 10px rgba(135, 11, 72, 0.9);
-    -webkit-animation: balloon1 6s ease-in-out infinite;
-    -moz-animation: balloon1 6s ease-in-out infinite;
-    -o-animation: balloon1 6s ease-in-out infinite;
-    animation: balloon1 6s ease-in-out infinite;
-}
-.balloon > div:nth-child(1):before {
-    color: rgba(182, 15, 97, 0.9);
-}
-.balloon > div:nth-child(2) {
-    background: rgba(242, 112, 45, 0.9);
-    left: 120px;
-    box-shadow: inset 10px 10px 10px rgba(222, 85, 14, 0.9);
-    -webkit-animation: balloon2 6s ease-in-out infinite;
-    -moz-animation: balloon2 6s ease-in-out infinite;
-    -o-animation: balloon2 6s ease-in-out infinite;
-    animation: balloon2 6s ease-in-out infinite;
-}
-.balloon > div:nth-child(2):before {
-    color: rgba(242, 112, 45, 0.9);
-}
-.balloon > div:nth-child(3) {
-    background: rgba(45, 181, 167, 0.9);
-    left: 240px;
-    box-shadow: inset 10px 10px 10px rgba(35, 140, 129, 0.9);
-    -webkit-animation: balloon4 6s ease-in-out infinite;
-    -moz-animation: balloon4 6s ease-in-out infinite;
-    -o-animation: balloon4 6s ease-in-out infinite;
-    animation: balloon4 6s ease-in-out infinite;
-}
-.balloon > div:nth-child(3):before {
-    color: rgba(45, 181, 167, 0.9);
-}
-.balloon > div:nth-child(4) {
-    background: rgba(190, 61, 244, 0.9);
-    left: 360px;
-    box-shadow: inset 10px 10px 10px rgba(173, 14, 240, 0.9);
-    -webkit-animation: balloon1 5s ease-in-out infinite;
-    -moz-animation: balloon1 5s ease-in-out infinite;
-    -o-animation: balloon1 5s ease-in-out infinite;
-    animation: balloon1 5s ease-in-out infinite;
-}
-.balloon > div:nth-child(4):before {
-    color: rgba(190, 61, 244, 0.9);
-}
-.balloon > div:nth-child(5) {
-    background: rgba(180, 224, 67, 0.9);
-    left: 480px;
-    box-shadow: inset 10px 10px 10px rgba(158, 206, 34, 0.9);
-    -webkit-animation: balloon3 5s ease-in-out infinite;
-    -moz-animation: balloon3 5s ease-in-out infinite;
-    -o-animation: balloon3 5s ease-in-out infinite;
-    animation: balloon3 5s ease-in-out infinite;
-}
-.balloon > div:nth-child(5):before {
-    color: rgba(180, 224, 67, 0.9);
-}
-.balloon > div:nth-child(6) {
-    background: rgba(242, 194, 58, 0.9);
-    left: 600px;
-    box-shadow: inset 10px 10px 10px rgba(234, 177, 15, 0.9);
-    -webkit-animation: balloon2 3s ease-in-out infinite;
-    -moz-animation: balloon2 3s ease-in-out infinite;
-    -o-animation: balloon2 3s ease-in-out infinite;
-    animation: balloon2 3s ease-in-out infinite;
-}
-.balloon > div:nth-child(6):before {
-    color: rgba(242, 194, 58, 0.9);
-}
-.balloon > div:before {
-    color: rgba(182, 15, 97, 0.9);
-    position: absolute;
-    bottom: -11px;
-    left: 52px;
-    content:"▲";
-    font-size: 1em;
-}
-span {
-    font-size: 4.8em;
-    color: white;
-    position: relative;
-    top: 0px;
-    left: 10px;
-}
-/*BALLOON 1 4*/
-@-webkit-keyframes balloon1 {
-  0%, 100% { -webkit-transform: translateY(0) rotate(-6deg); }
-  50% { -webkit-transform: translateY(-20px) rotate(8deg); }
-}
-@-moz-keyframes balloon1 {
-  0%, 100% { -moz-transform: translateY(0) rotate(-6deg); }
-  50% { -moz-transform: translateY(-20px) rotate(8deg); }
-}
-@-o-keyframes balloon1 {
-  0%, 100% { -o-transform: translateY(0) rotate(-6deg); }
-  50% { -o-transform: translateY(-20px) rotate(8deg); }
-}
-@keyframes balloon1 {
-  0%, 100% { transform: translateY(0) rotate(-6deg); }
-  50% { transform: translateY(-20px) rotate(8deg); }
-}
-/* BAllOON 2 5*/
-@-webkit-keyframes balloon2 {
-  0%, 100% { -webkit-transform: translateY(0) rotate(6eg); }
-  50% { -webkit-transform: translateY(-30px) rotate(-8deg); }
-}
-@-moz-keyframes balloon2 {
-  0%, 100% { -moz-transform: translateY(0) rotate(6deg); }
-  50% { -moz-transform: translateY(-30px) rotate(-8deg); }
-}
-@-o-keyframes balloon2 {
-  0%, 100% { -o-transform: translateY(0) rotate(6deg); }
-  50% { -o-transform: translateY(-30px) rotate(-8deg); }
-}
-@keyframes balloon2 {
-  0%, 100% { transform: translateY(0) rotate(6deg); }
-  50% { transform: translateY(-30px) rotate(-8deg); }
-}
-/* BAllOON 0*/
-@-webkit-keyframes balloon3 {
-  0%, 100% { -webkit-transform: translate(0, -10px) rotate(6eg); }
-  50% { -webkit-transform: translate(-20px, 30px) rotate(-8deg); }
-}
-@-moz-keyframes balloon3 {
-  0%, 100% { -moz-transform: translate(0, -10px) rotate(6eg); }
-  50% { -moz-transform: translate(-20px, 30px) rotate(-8deg); }
-}
-@-o-keyframes balloon3 {
-  0%, 100% { -o-transform: translate(0, -10px) rotate(6eg); }
-  50% { -o-transform: translate(-20px, 30px) rotate(-8deg); }
-}
-@keyframes balloon3 {
-  0%, 100% { transform: translate(0, -10px) rotate(6eg); }
-  50% { transform: translate(-20px, 30px) rotate(-8deg); }
-}
-/* BAllOON 3*/
-@-webkit-keyframes balloon4 {
-  0%, 100% { -webkit-transform: translate(10px, -10px) rotate(-8eg); }
-  50% { -webkit-transform: translate(-15px, 20px) rotate(10deg); }
-}
-@-moz-keyframes balloon4 {
-  0%, 100% { -moz-transform: translate(10px, -10px) rotate(-8eg); }
-  50% { -moz-transform: translate(-15px, 10px) rotate(10deg); }
-}
-@-o-keyframes balloon4 {
-  0%, 100% { -o-transform: translate(10px, -10px) rotate(-8eg); }
-  50% { -o-transform: translate(-15px, 10px) rotate(10deg); }
-}
-@keyframes balloon4 {
-  0%, 100% { transform: translate(10px, -10px) rotate(-8eg); }
-  50% { transform: translate(-15px, 10px) rotate(10deg); }
-}
-
-@media screen and (max-width: 768px) {
-  h2 { font-size: 20px; line-height: 32px; }
-  #gift { max-width: 150px; top: 57%; }
-  .balloon-container { height: 170px; }
-  .balloon > div { width: 50px; height: 70px; }
-  span { font-size: 2.2rem; }
-  .balloon > div:before { left: 19px; }
-  .balloon > div:nth-child(1) span { left: -3px; }
-  .balloon > div:nth-child(2) { left: 62px; }
-  .balloon > div:nth-child(3) { left: 124px; }
-  .balloon > div:nth-child(4) { left: 186px; }
-  .balloon > div:nth-child(5) { left: 248px; }
-  .balloon > div:nth-child(6) { left: 310px; }
-}
-</style>
+<script src="index.js"></script>
 
 </html>
